@@ -1,0 +1,17 @@
+{
+  "name": "Serve",
+  "description": "A platform for creating scripts runnable via SMS",
+  "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "utl": "https://github.com/njdup/Serve.git"
+  },
+  "main": "serve.js",
+  "dependencies": {
+    "express": "~4.5.x"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.x"
+  },
+  "engine": "node 0.12.x"
+}

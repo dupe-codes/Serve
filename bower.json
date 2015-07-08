@@ -1,0 +1,9 @@
+{
+  "name": "Serve",
+  "version": "0.1.0",
+  "description": "A platform for creating scripts runnable via SMS",
+  "dependencies": {
+    "bootstrap": "~3",
+    "react": "*"
+  }
+}
