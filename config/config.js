@@ -2,6 +2,7 @@
 
 /*
  * Global application configuration
+ * TODO: Look into using a database other than mongoDB
  */
 
 module.exports = {

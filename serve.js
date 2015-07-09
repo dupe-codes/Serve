@@ -1,6 +1,8 @@
 'use strict';
 
-// Initialize and run the Serve platform
+/*
+ * Initialize and run the Serve platform
+ */
 
 var config = require('./config/config');
 var mongoose = require('mongoose');
