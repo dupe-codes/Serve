@@ -4,5 +4,15 @@ The New and Improved Serve Platform
 TODO
 ----
   - Convert todo list management to Github issues
-  - Write up basic grunt tasks (linting, running server, etc)
   - Configure use of nodemon for running server
+
+Development Notes
+-----------------
+Gulp is configured as a general launcher for useful tasks such as linting and
+running the server.
+
+To run the server:  `gulp start`
+To run linting:     `gulp lint`
+
+The server is run using nodemon, and is configured to automatically restart
+whenever any changes are made to .js or .html files

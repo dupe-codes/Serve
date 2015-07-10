@@ -1,0 +1,18 @@
+{
+  "node": true,         // enable globals in nodeJS
+  "browser": true,      // enable browser globals
+  "strict": true,       // require 'use strict' pragma in files
+  "unused": false,      // warn when vars are unused
+  "trailing": true,     // no trailing whitespace
+  "globals": {},        // Fill with any globals to whitelist
+  "predef": [
+    "define",
+    "require",
+    "exports",
+    "module"
+  ],
+  "indent": 2,
+  "quotmark": "single", // require use of single quotes for strings
+  "camelcase": true,
+  "devel": true
+}

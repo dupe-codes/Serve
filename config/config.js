@@ -10,4 +10,4 @@ module.exports = {
   port: process.env.PORT || 8080,
   sessionSecret: process.env.SESSION_SECRET || 'expandingSMSfunctionality',
   sessionCollection: 'sessions'
-}
+};
