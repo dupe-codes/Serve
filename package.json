@@ -27,9 +27,11 @@
     "gulp": "^3.9.0",
     "gulp-jsbeautifier": "^1.0.0",
     "gulp-jshint": "^1.11.2",
+    "gulp-mocha": "^2.1.2",
     "gulp-nodemon": "^2.0.3",
     "less": "2.5.x",
-    "minimist": "^1.1.1"
+    "minimist": "^1.1.1",
+    "mocha": "^2.2.5"
   },
   "engine": "node 0.12.x"
 }
