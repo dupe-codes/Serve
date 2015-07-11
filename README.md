@@ -14,7 +14,7 @@ running the server.
 To run the server:  `gulp start`  
 To run linting:     `gulp lint`  
 To format a file:   `gulp format --file path/to/file`  
-To run mocha tests: `gulp mocha`  
+To run mocha tests: `gulp test`  
 
 The server is run using nodemon, and is configured to automatically restart
 whenever any changes are made to .js or .html files

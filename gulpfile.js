@@ -9,6 +9,7 @@ var jshint    = require('gulp-jshint');
 var nodemon   = require('gulp-nodemon');
 var prettify  = require('gulp-jsbeautifier');
 var mocha     = require('gulp-mocha');
+var ignore    = require('gulp-ignore');
 
 var minimist  = require('minimist');
 var path      = require('path');
@@ -22,6 +23,7 @@ var options = minimist(process.argv.slice(2), knownOptions);
 gulp.task('lint', function() {
   return gulp.src(['./app/**/*.js', './config/**/*.js', './*.js'])
     .pipe(jshint('.jshintrc'))
+    .pipe(ignore.exclude('**/*-test.js'))
     .pipe(jshint.reporter('default'));
 });
 
@@ -48,7 +50,7 @@ gulp.task('format', function() {
 /*
  * task to run all mocha unit tests
  */
-gulp.task('mocha', function() {
+gulp.task('test', function() {
   return gulp.src(['./app/tests/*-test.js'])
     .pipe(mocha({reporter: 'spec'}));
 });
