@@ -39,6 +39,7 @@ module.exports = function(db) {
   app.use(express.static(path.join(__dirname, '../public')));
 
   // Setup server-side template engine
+  // TODO: Change this to use whatever templating engine we use
   app.set('views', path.join(__dirname, '../app/views'));
   app.set('view engine', 'html');
   app.engine('.html', consolidate.swig);
@@ -55,6 +56,9 @@ module.exports = function(db) {
   }));
 
   // TODO: Add in passport middleware for session management
+  app.use(passport.initialize());
+  app.use(passport.session());
+  app.use(flash());
 
   // FIXME: Figure out better place to configure routing
   require('../app/router')(app);

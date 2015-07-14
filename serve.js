@@ -10,6 +10,9 @@ var mongoose = require('mongoose');
 var db = mongoose.connect(config.db);
 var app = require('./config/express')(db);
 
+// Bootstrap passport configuration
+require('./config/passport')();
+
 app.listen(config.port);
 console.log('Serve Platform running on port ' + config.port);
 

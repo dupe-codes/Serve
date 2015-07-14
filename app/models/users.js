@@ -9,7 +9,7 @@ var crypto          = require('crypto');
 var phone           = require('node-phonenumber');
 var uniqueValidator = require('mongoose-unique-validator');
 
-var servletSchema   = require('./servlets').schema;
+var servletSchema   = require('./servlets').Schema;
 
 var phoneUtil = phone.PhoneNumberUtil.getInstance();
 var MIN_PASS_LEN = 6;
@@ -57,7 +57,8 @@ var userSchema = mongoose.Schema({
     validate: [phoneUtil.isValidNumber, 'Phonenumber must be valid']
   },
   servlets: {
-    type: [servletSchema]
+    type: [servletSchema],
+    default: []
   },
   salt: {
     type: String
@@ -105,4 +106,6 @@ userSchema.methods.authenticate = function(password) {
   return this.password === this.hashPassword(password);
 };
 
-module.exports = mongoose.models('User', userSchema);
+var User = mongoose.model('User', userSchema);
+
+module.exports = { User: User };

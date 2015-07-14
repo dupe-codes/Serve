@@ -28,5 +28,9 @@ var servletSchema = mongoose.Schema({
   }
 });
 
-module.exports.schema = servletSchema;
-module.exports.model = mongoose.model('App', servletSchema);
+var Servlet = mongoose.model('Servlet', servletSchema);
+
+module.exports = {
+  Schema: servletSchema,
+  Servlet: Servlet
+};
