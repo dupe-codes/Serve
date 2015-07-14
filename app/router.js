@@ -5,6 +5,10 @@
  */
 
 module.exports = function(app) {
-  // Index routes
+  // Index/site routes
   app.use('/', require('./routes/index'));
+
+  // User routes
+  app.use('/users/', require('./routes/users'));
+
 };

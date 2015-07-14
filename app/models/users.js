@@ -19,7 +19,7 @@ var SALT_LEN = 16;
  * Helper function to check password validity
  */
 var passwordValid = function(password) {
-  return password && password.length > MIN_PASS_LEN;
+  return password && password.length >= MIN_PASS_LEN;
 };
 
 var userSchema = mongoose.Schema({
@@ -53,8 +53,9 @@ var userSchema = mongoose.Schema({
     type: String,
     default: '',
     required: 'Phonenumber must be provided',
-    unique: true,
-    validate: [phoneUtil.isValidNumber, 'Phonenumber must be valid']
+    unique: true
+    //validate: [phoneUtil.isValidNumber, 'Phonenumber must be valid']
+    // TODO: Figure out phone number validation
   },
   servlets: {
     type: [servletSchema],
