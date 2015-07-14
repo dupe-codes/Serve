@@ -4,7 +4,6 @@ The New and Improved Serve Platform
 TODO
 ----
   - Convert todo list management to Github issues
-  - Configure use of nodemon for running server
 
 Development Notes
 -----------------
