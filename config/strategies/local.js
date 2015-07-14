@@ -49,7 +49,7 @@ module.exports = function(passport) {
 
         // Check if user already exists with given email
         if (user) {
-          console.log("User already exists");
+          console.log('User already exists');
           return done(null, false, req.flash('signupMessage', 'That email is already taken'));
         } else {
 
@@ -57,8 +57,8 @@ module.exports = function(passport) {
           var newUser = new User(req.body);
           newUser.save(function(err) {
             if (err) {
-              var message = ""
-              for (var key in err.errors) { message = err.errors[key].message } // TODO: Handle this better
+              var message = '';
+              for (var key in err.errors) { message = err.errors[key].message; } // TODO: Handle this better
               console.log(message);
               return done(null, false, req.flash('signupMessage', message));
             } else {
