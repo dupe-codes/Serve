@@ -25,6 +25,11 @@ var servletSchema = mongoose.Schema({
     type: String,
     default: '',
     required: 'Servlet code must be provided'
+  },
+  language: {
+    type: String,
+    default: 'python',
+    required: 'The language in which the Servlet is written must be given'
   }
 });
 

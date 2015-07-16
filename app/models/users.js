@@ -107,6 +107,20 @@ userSchema.methods.authenticate = function(password) {
   return this.password === this.hashPassword(password);
 };
 
+/*
+ * Creates a Servlet out of the given data and adds it
+ * to the user's list of Servlets
+ * TODO: Look further into how to do this cleanly
+ */
+userSchema.methods.addServlet = function(servletData) {
+  this.servlets.push({
+    name: servletData.name,
+    description: servletData.about,
+    code: servletData.code,
+    language: servletData.language
+  });
+};
+
 var User = mongoose.model('User', userSchema);
 
 module.exports = { User: User };

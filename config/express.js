@@ -73,6 +73,7 @@ module.exports = function(db) {
 
   app.use(function(err, req, resp, next) {
     resp.status(err.status || 500);
+    console.log(err);
     resp.render('error', {
       message: err.message,
       error: err

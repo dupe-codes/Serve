@@ -5,10 +5,11 @@
  */
 
 module.exports = function(app) {
+
   // Index/site routes
   app.use('/', require('./routes/index'));
 
-  // User routes
+  // User and user servlet routes
   app.use('/users/', require('./routes/users'));
 
 };

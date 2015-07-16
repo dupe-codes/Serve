@@ -9,5 +9,12 @@ module.exports = {
   db: process.env.DATABASE_URL || 'mongodb://localhost/serve-dev',
   port: process.env.PORT || 8080,
   sessionSecret: process.env.SESSION_SECRET || 'expandingSMSfunctionality',
-  sessionCollection: 'sessions'
+  sessionCollection: process.env.SESSION_STORE || 'sessions',
+
+  // Twilio account/API credentials
+  twilio: {
+    accountId: process.env.TWILIO_ID || 'none',
+    authToken: process.env.TWILIO_AUTH || 'none',
+    phoneNumber: process.env.TWILIO_NUMBER || '1800DEVELOPR'
+  }
 };
