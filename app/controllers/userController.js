@@ -12,7 +12,7 @@ module.exports = {
   // wrapper around passport signup strategy
   createAccount: passport.authenticate('local-signup', {
     successRedirect: '/main',
-    failureRedirect: '/users/signup',
+    failureRedirect: '/register',
     failureFlash: true
   }),
 

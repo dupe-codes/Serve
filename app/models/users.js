@@ -23,17 +23,12 @@ var passwordValid = function(password) {
 };
 
 var userSchema = mongoose.Schema({
-  firstName: {
+  name: {
     type: String,
     default: '',
-    required: 'First name must be provided'
+    required: 'Name must be provided'
   },
-  lastName: {
-    type: String,
-    default: '',
-    required: 'Last name must be provided'
-  },
-  email: {
+ email: {
     type: String,
     default: '',
     required: 'Email must be provided',

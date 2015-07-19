@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<!--META BEGIN-->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="keywords" content="SMS">
+	<meta name="description" content="SMS script execution">
+	<!--META END-->
+	<title>Create New Project - Ultimate SMS</title>
+	<!--LINKS BEGIN-->
+	<link href='/lib/bootstrap/dist/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
+	
+	<link href='css/reset.css' rel='stylesheet' type='text/css'>
+	<link href='css/create.css' rel='stylesheet' type='text/css'>
+	<!--LINKS END-->
+	<!--CDN BEGIN-->
+	<script type='text/javascript' src='http://code.jquery.com/jquery-1.11.1.min.js'></script>
+	<!--CDN END-->
+	<!--LOCAL BEGIN-->
+	<script type="text/javascript" src="/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+	<!--LOCAL END-->
+
+    <style type="text/css" media="screen">
+    .editor-container {
+        position: relative;
+        width:100%;
+        height:300px;
+        background-color:#ddd;
+    }
+
+    #editor { 
+        position: absolute;
+        font-family:monospace !important;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
+    </style>
+
+</head>
+
+<body>
+<!--HEADER BEGIN-->
+<div>
+	<% include partial/sidebar %>
+</div>
+<!--HEADER END-->
+
+
+<div class="container col-md-10" >
+
+    <div class="title">Create New Project</div>
+                    
+    <form id="form"  action="/users/servlet" method='post' accept-charset="utf-8" style="margin-bottom:20px">
+
+
+    	<h4>Basic</h4>
+        <table class="table">                    
+            <tr>
+                <td class="col-md-3 field-name">Project Name</td>
+                <td >
+                    <input id="name"   type="text" class="form-control" fixed>
+                </td>
+            </tr>
+                                     
+            <tr>
+                <td class="col-md-3 field-name">Description</td>
+                <td>
+                    <textarea id="about" class="form-control" rows="3"></textarea>
+                </td>
+            </tr> 
+
+            <tr>
+                <td class="col-md-3 field-name">Other Recipients</td>
+                <td >
+                    <input  id="recipients" type="text" class="form-control" placeholder="other phone numbers">
+                </td>
+            </tr>
+        </table> 
+
+        <hr></hr>
+
+        <h4>Build</h4>
+        <table class="table">                    
+                                     
+            <tr>
+                <td class="col-md-3 field-name">Command</td>
+                <td><div class='editor-container'><div id="editor"></div>
+                </div></td>
+            </tr> 
+
+        </table> 
+
+        <hr></hr>
+
+        <h4>Return Message</h4>
+        <table class="table">                    
+                                     
+            <tr>
+                <td class="col-md-3 field-name">Message</td>
+                <td>
+                    <textarea name="message" class="form-control" rows="3"></textarea>
+                </td>
+            </tr> 
+        </table> 
+
+        <button type="submit" id="create" class="form-control">Create</button>
+      
+    </form>
+
+</div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/ace.js"></script>
+<script>
+$(document).ready(function() {
+
+
+
+    var editor = ace.edit("editor");
+    editor.container.style.fontFamily = "monospace";
+    editor.getSession().setMode("ace/mode/python");
+
+    $( "#form" ).submit(function( eventObject ) {
+        eventObject.preventDefault();
+
+        var data = {};
+        data.name = $('#name').val();
+        data.about = $('#about').val();
+        data.recipients = $('#recipients').val().split(" ");
+        data.code = editor.getValue();
+
+        console.log('hello');
+
+        var url = $('#form').attr('action');
+        $.post(url,{data: JSON.stringify(data)},function(data) {
+            window.location.href="/main";
+        });
+    });
+
+});
+</script>
+</body>
+</html>

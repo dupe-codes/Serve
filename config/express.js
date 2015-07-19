@@ -9,8 +9,6 @@ var path = require('path');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 var logger = require('morgan');
-var consolidate = require('consolidate');
-var swig = require('swig');
 var passport = require('passport');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
@@ -41,8 +39,7 @@ module.exports = function(db) {
   // Setup server-side template engine
   // TODO: Change this to use whatever templating engine we use
   app.set('views', path.join(__dirname, '../app/views'));
-  app.set('view engine', 'html');
-  app.engine('.html', consolidate.swig);
+  app.set('view engine', 'ejs');
 
   // Configure the mongoDB session store
   app.use(session({

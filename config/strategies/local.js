@@ -12,15 +12,18 @@ var User = require('../../app/models/users').User;
 module.exports = function(passport) {
 
   // Set strategy for users logging in with Serve credentials
+  // FIXME: Change from using phonenumbers to email addr as unique identifier
   passport.use('local-login', new LocalStrategy({
-    usernameField: 'email', // use email addr as user identifier
+    usernameField: 'phoneNumber', // use phonenumber as user identifier
     passwordField: 'password',
     passReqToCallback: true
   },
-  function(req, email, password, done) {
+  function(req, phoneNumber, password, done) {
+    console.log(phoneNumber);
     process.nextTick(function() {
-      User.findOne({ email: email }, function(err, user) {
+      User.findOne({ phoneNumber: phoneNumber }, function(err, user) {
         // Some error occurred
+        console.log(phoneNumber);
         if (err) { return done(err); }
 
         // User with given username doesn't exist
@@ -38,19 +41,19 @@ module.exports = function(passport) {
 
   // Set strategy for users creating Serve credentials
   passport.use('local-signup', new LocalStrategy({
-    usernameField: 'email',
+    usernameField: 'phoneNumber',
     passwordField: 'password',
     passReqToCallback: true
   },
-  function(req, email, password, done) {
+  function(req, phoneNumber, password, done) {
     process.nextTick(function() {
-      User.findOne({ email: email }, function(err, user) {
+      User.findOne({ phoneNumber: phoneNumber }, function(err, user) {
         if (err) { console.log(err); return done(err); }
 
-        // Check if user already exists with given email
+        // Check if user already exists with given phoneNumber
         if (user) {
           console.log('User already exists');
-          return done(null, false, req.flash('signupMessage', 'That email is already taken'));
+          return done(null, false, req.flash('signupMessage', 'That phone number is already taken'));
         } else {
 
           // TODO: Check that this method for creating the new user works here

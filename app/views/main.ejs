@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<!--META BEGIN-->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="keywords" content="SMS">
+	<meta name="description" content="SMS script execution">
+	<!--META END-->
+	<title>Main - Ultimate SMS</title>
+	<!--LINKS BEGIN-->
+	<link href='/lib/bootstrap/dist/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Montserrat|Open+Sans' rel='stylesheet' type='text/css'>
+	<link href='css/reset.css' rel='stylesheet' type='text/css'>
+	<link href='css/create.css' rel='stylesheet' type='text/css'>
+	<link href='css/main.css' rel='stylesheet' type='text/css'>
+	<!--LINKS END-->
+	<!--CDN BEGIN-->
+	<script type='text/javascript' src='http://code.jquery.com/jquery-1.11.1.min.js'></script>
+	<!--CDN END-->
+	<!--LOCAL BEGIN-->
+	<script type="text/javascript" src="/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+	<!--LOCAL END-->
+
+</head>
+
+<body>
+<!--HEADER BEGIN-->
+<div>
+	<% include partial/sidebar %>
+</div>
+<!--HEADER END-->
+
+
+<div class="container col-md-10" >
+
+    <div class="title">My Panel</div>
+                    
+    <form accept-charset="utf-8" style="margin-bottom:20px">
+
+    	<h4>App List</h4>
+        <table class="table"> 
+            <% for (i = user.servlets.length-1; i >= 0; i--) {%>                   
+            <tr>
+                <td id=<%= user.servlets[i].id %> class="col-md-11 field-name item-name"><%= user.servlets[i].name %></td>
+                <td><span class="glyphicon glyphicon-remove remove" aria-hidden="true"></span></td>
+            </tr>
+            <% } %>
+            <tr>
+                <td class="col-md-11 field-name item-name"><i><a href="/create">create a project ...</a></i></td>
+            </tr>
+        </table> 
+
+    </form>
+
+    <div class="col-md-11 create-section">
+    
+
+
+</div>
+
+
+</body>
+
+<script>
+    $('.remove').click(function(){
+        var $sib = $(this).parent().siblings('.item-name');
+        var data = {
+            programid: $sib.attr('id')
+        };
+        // TODO: Fix this with new route
+        $.post('/users/servlets/remove', data, function( data ) {
+            $sib.parent().fadeOut();
+        }, 'json');
+    });
+</script>
+
+</html>

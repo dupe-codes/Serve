@@ -14,8 +14,9 @@ module.exports = {
    * list of Servlets
    */
   createServlet: function(req, res) {
-    console.log(req.body);
-    req.user.addServlet(req.body);
+    var data = JSON.parse(req.body.data);
+    data.language = 'python'; // FIXME: Need to include this in create form
+    req.user.addServlet(data);
     req.user.save(function saveUser(err){
       if (err) {
         throw err; // FIXME: Handle error in a better way

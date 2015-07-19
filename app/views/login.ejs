@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<!--META BEGIN-->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="keywords" content="SMS">
+	<meta name="description" content="SMS script execution">
+	<!--META END-->
+	<title>Login - Ultimate SMS</title>
+	<!--LINKS BEGIN-->
+	<link href='/lib/bootstrap/dist/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Montserrat|Open+Sans|Raleway' rel='stylesheet' type='text/css'>
+	<link href='css/reset.css' rel='stylesheet' type='text/css'>
+	<link href='css/login.css' rel='stylesheet' type='text/css'>
+	<!--LINKS END-->
+	<!--CDN BEGIN-->
+	<script type='text/javascript' src='http://code.jquery.com/jquery-1.11.1.min.js'></script>
+	<!--CDN END-->
+	<!--LOCAL BEGIN-->
+	<script type="text/javascript" src="/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+	<!--LOCAL END-->
+
+</head>
+
+<body>
+
+<div class="decoration-box"></div>	
+
+<div class="container">
+	<form action="/users/login" method="post" accept-charset="utf-8">
+		<h1 class="title">Login</h1>
+
+		<div class="login-item">
+			<label>Phone Number</label>
+			<div>
+				<input name="phoneNumber" type="text" class="form-control">
+			</div>
+		</div>
+
+		<div class="login-item">
+			<label>Password</label>
+			<div>
+				<input name="password" type="password" class="form-control">
+			</div>
+		</div>
+		<a href=""><div class="forgot" style="text-align: center; padding-top: 10px; padding-right: 0; padding-left: 0;">Forgot your password?</div></a>
+
+		<div style="margin-top:30px">
+			<button type="submit" class="btn-item" style="float: right;  margin-right: 50px;">Login</button>
+		</div>
+	</form>
+	<a href="/"><button class="btn-item" style="background-color:white;color:black;margin-right:10px;  margin-left: 30px;">Cancel</button></a>
+
+</div>
+
+</body>
+</html>
