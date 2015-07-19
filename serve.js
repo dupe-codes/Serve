@@ -13,7 +13,9 @@ var app = require('./config/express')(db);
 // Bootstrap passport configuration
 require('./config/passport')();
 
-app.listen(config.port);
-console.log('Serve Platform running on port ' + config.port);
+app.listen(config.port, config.host);
+console.log(
+  'Serve Platform running at ' + config.host + ':' + config.port
+);
 
 exports = module.exports = app;

@@ -8,6 +8,7 @@
 module.exports = {
   db: process.env.DATABASE_URL || 'mongodb://localhost/serve-dev',
   port: process.env.PORT || 8080,
+  host: process.env.HOST_IP || '127.0.0.1',
   sessionSecret: process.env.SESSION_SECRET || 'expandingSMSfunctionality',
   sessionCollection: process.env.SESSION_STORE || 'sessions',
 
