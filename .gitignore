@@ -14,3 +14,9 @@ npm-debug.log
 
 # Ignore everything written into tmp/
 tmp/
+
+# Ignore testing files
+debug/
+reports/
+.coverdata/
+.coverrun

@@ -10,6 +10,7 @@ var nodemon   = require('gulp-nodemon');
 var prettify  = require('gulp-jsbeautifier');
 var mocha     = require('gulp-mocha');
 var ignore    = require('gulp-ignore');
+var cover     = require('gulp-coverage');
 
 var minimist  = require('minimist');
 var path      = require('path');
@@ -49,8 +50,16 @@ gulp.task('format', function() {
 
 /*
  * task to run all mocha unit tests
+ * also generates a test coverage report
  */
 gulp.task('test', function() {
   return gulp.src(['./app/tests/*-test.js'])
-    .pipe(mocha({reporter: 'spec'}));
+    .pipe(cover.instrument({
+      pattern: ['**/*-test.js'],
+      debugDirectory: 'debug'
+    }))
+    .pipe(mocha({reporter: 'spec'}))
+    .pipe(cover.gather())
+    .pipe(cover.format())
+    .pipe(gulp.dest('reports'));
 });
