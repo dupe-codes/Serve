@@ -11,3 +11,6 @@ npm-debug.log
 
 # Annoying mac stuff
 .DS_Store
+
+# Ignore everything written into tmp/
+tmp/

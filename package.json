@@ -22,7 +22,8 @@
     "node-phonenumber": "^0.2.2",
     "passport": "^0.2.2",
     "passport-local": "^1.0.0",
-    "swig": "1.4.x"
+    "swig": "1.4.x",
+    "twilio": "^2.2.1"
   },
   "devDependencies": {
     "bower": "1.4.x",

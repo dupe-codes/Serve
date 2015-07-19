@@ -12,4 +12,7 @@ module.exports = function(app) {
   // User and user servlet routes
   app.use('/users/', require('./routes/users'));
 
+  // SMS message interactions
+  app.use('/texts/', require('./routes/texts'));
+
 };
